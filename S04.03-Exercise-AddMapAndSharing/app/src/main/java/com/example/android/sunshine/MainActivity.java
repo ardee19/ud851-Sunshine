@@ -211,6 +211,13 @@ public class MainActivity extends AppCompatActivity implements ForecastAdapterOn
         return true;
     }
 
+    private void showMap(Uri uri) {
+        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
+        }
+    }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
@@ -219,9 +226,15 @@ public class MainActivity extends AppCompatActivity implements ForecastAdapterOn
             mForecastAdapter.setWeatherData(null);
             loadWeatherData();
             return true;
-        }
+        } else if (id == R.id.action_open_map) {
+            // COMPLETED (2) Launch the map when the map menu item is clicked
+            String addressString = "1600 Ampitheatre Parkway, CA";
 
-        // TODO (2) Launch the map when the map menu item is clicked
+            Uri.Builder builder = new Uri.Builder();
+            builder.scheme("geo").path("0,0").appendQueryParameter("q",addressString).build();
+            Uri uri = builder.build();
+            showMap(uri);
+        }
 
         return super.onOptionsItemSelected(item);
     }
