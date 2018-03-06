@@ -124,7 +124,7 @@ public class WeatherProvider extends ContentProvider {
             case CODE_WEATHER_WITH_DATE:
                 String normalizedUtcDateString = uri.getLastPathSegment();
                 String[] selectionArguments = new String[]{normalizedUtcDateString};
-                
+
                 retCursor = db.query(WeatherContract.WeatherEntry.TABLE_NAME,
                         projection,
                         WeatherContract.WeatherEntry.COLUMN_DATE + " = ? ",
