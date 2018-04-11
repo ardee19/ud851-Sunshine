@@ -35,7 +35,7 @@
 
 
     <TextView
-        android:id="@+id/date"
+        android:id="@+id/tv_weather_date"
         style="@style/TextAppearance.AppCompat.Large"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -59,7 +59,7 @@
 
     <!-- Low temperature for today -->
     <TextView
-        android:id="@+id/low_temperature"
+        android:id="@+id/tv_low_temperature"
         style="@style/TextAppearance.AppCompat.Large"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
